@@ -9,13 +9,13 @@ if (info) {
       iniciarTemporizador(data.tiempo);
     })
   } else {
-    sonarAlarma();
+    sonarAlarma('cita_disponible');
     chrome.runtime.sendMessage('activarTab')
   }
 }
 
-function sonarAlarma() {
-  var myAudio = new Audio(chrome.runtime.getURL("alarma.mp3"));
+function sonarAlarma(nombre) {
+  var myAudio = new Audio(chrome.runtime.getURL(`${nombre}.mp3`));
   myAudio.play();
 }
 

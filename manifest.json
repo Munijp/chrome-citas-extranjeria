@@ -24,7 +24,10 @@
     "128": "images/get_started128.png"
   },
   "web_accessible_resources": [
-    "alarma.mp3"
+    "assets/alarma.mp3",
+    "assets/captcha.mp3",
+    "assets/error.mp3",
+    "assets/cita_disponible.mp3"
   ],
   "content_scripts": [{
     "matches": ["https://sede.administracionespublicas.gob.es/icpplus/*"],
