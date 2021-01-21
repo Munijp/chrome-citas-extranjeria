@@ -1,0 +1,61 @@
+@charset "utf-8";
+	
+@media (min-width: 22em) and (max-width: 28em) {
+	.colFecha2{
+		display: none;
+	}
+	
+}	
+	
+@media  (max-width: 22em) {
+	.colFecha1, .colFecha2{
+		display: none;
+	}
+	
+}
+
+@media screen and (max-height: 575px){ 
+	#rc-imageselect, .g-recaptcha, .rc-anchor {
+		transform:scale(0.77);
+		-webkit-transform:scale(0.77);
+		transform-origin:0 0;
+		-webkit-transform-origin:0 0;
+	}
+}
+
+@media screen and (max-width: 350px){ 	
+	.email {
+		font-size: 0.9em;
+	}
+	.url {
+		font-size: 89%;
+	}
+	table.ListaTabla {
+    	width: 100% !important;
+	}
+}
+
+@media screen and (min-width: 600px){ 
+	#VistaMapa_Datatable {
+	    width: 400px !important;
+	    margin: 0 10%;
+	}
+}
+
+div .ListaTabla {
+    border: 2px solid lightgray !important;
+}
+
+
+
+#VistaMapa_Datatable thead,#VistaMapa_Datatable tbody { display: block; }
+#VistaMapa_Datatable tbody {
+    height: 315px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#VistaMapa_Datatable thead {
+	border-bottom: 1px solid;
+}
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vendor/css/bootstrap.min.css">
+  <style>
+    body {
+      width: 300px;
+      padding: 5px;
+      margin: 0px;
+    }
+
+    .int-desc {
+      color: darkgray;
+    }
+
+    #msg {
+      color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form" class="form-horizontal">
+    <h4 id="msg"></h4>
+    <div class="form-group">
+      <label>DNI - NIE:</label>
+      <input class="form-control" id="dni">
+    </div>
+    <div class="form-group">
+      <label>Nombre</label>
+      <input class="form-control" id="nombre" placeholder="JOSE ALBERTO PEREZ">
+    </div>
+    <div class="form-group">
+      <label>Fecha Vencimiento</label>
+      <input class="form-control" id="fecha" placeholder="dd/mm/yyyy">
+    </div>
+    <div class="form-group">
+      <label>Intervalo: <span class="int-desc">(minutos)</span></label>
+      <input class="form-control" id="tiempo" type="number" min="1" step="1">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block">Guardar 💾</button>
+    </div>
+  </form>
+
+  <script src="./vendor/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="./vendor/js/bootstrap.min.js"></script>
+  <script src="./vendor/js/bootstrap.bundle.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html

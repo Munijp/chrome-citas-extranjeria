@@ -1,0 +1,55 @@
+{
+  "name": "Ayudante Cita Extranjeria",
+  "version": "1.0",
+  "description": "Ayudar en el proceso de solicitud de citas!",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["declarativeContent", "storage", "activeTab", "alarms", "tabs"],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/get_started16.png",
+      "32": "images/get_started32.png",
+      "48": "images/get_started48.png",
+      "128": "images/get_started128.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "images/get_started16.png",
+    "32": "images/get_started32.png",
+    "48": "images/get_started48.png",
+    "128": "images/get_started128.png"
+  },
+  "web_accessible_resources": [
+    "alarma.mp3"
+  ],
+  "content_scripts": [{
+    "matches": ["https://sede.administracionespublicas.gob.es/icpplus/*"],
+    "js": ["./procesos/verificarProblemas.js", "./procesos/selProvincia.js"],
+    "run_at": "document_end"
+  }, {
+    "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/citar*"],
+    "js": ["./procesos/selTramite.js"],
+    "run_at": "document_end"
+  }, {
+    "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acInfo*"],
+    "js": ["./procesos/acInfo.js"],
+    "run_at": "document_end"
+  }, {
+    "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acEntrada*"],
+    "js": ["./procesos/acEntrada.js"],
+    "run_at": "document_end"
+  }, {
+    "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acValidarEntrada*"],
+    "js": ["./procesos/acValidarEntrada.js"],
+    "run_at": "document_end"
+  }, {
+    "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acCitar*"],
+    "js": ["./procesos/acCitar.js"],
+    "run_at": "document_end"
+  }],
+  "manifest_version": 2
+}
