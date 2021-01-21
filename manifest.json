@@ -35,23 +35,23 @@
     "run_at": "document_end"
   }, {
     "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/citar*"],
-    "js": ["./procesos/selTramite.js"],
+    "js": ["./procesos/verificarProblemas.js", "./procesos/selTramite.js"],
     "run_at": "document_end"
   }, {
     "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acInfo*"],
-    "js": ["./procesos/acInfo.js"],
+    "js": ["./procesos/verificarProblemas.js", "./procesos/acInfo.js"],
     "run_at": "document_end"
   }, {
     "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acEntrada*"],
-    "js": ["./procesos/acEntrada.js"],
+    "js": ["./procesos/verificarProblemas.js", "./procesos/acEntrada.js"],
     "run_at": "document_end"
   }, {
     "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acValidarEntrada*"],
-    "js": ["./procesos/acValidarEntrada.js"],
+    "js": ["./procesos/verificarProblemas.js", "./procesos/acValidarEntrada.js"],
     "run_at": "document_end"
   }, {
     "matches": ["https://sede.administracionespublicas.gob.es/icpplustiem/acCitar*"],
-    "js": ["./procesos/acCitar.js"],
+    "js": ["./procesos/verificarProblemas.js", "./procesos/acCitar.js"],
     "run_at": "document_end"
   }],
   "manifest_version": 2
