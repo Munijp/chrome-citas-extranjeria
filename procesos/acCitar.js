@@ -7,16 +7,29 @@ if (info) {
     chrome.storage.sync.get("tiempo", (data) => {
       appendHtml(info, `<h2 style="color:#c33400;color:#c33400;">⏰ Esperando ${data.tiempo}m para iniciar de nuevo el proceso <span id="tiempo"></span></h2>`);
       iniciarTemporizador(data.tiempo);
+      sonarAlarma('no_hay_citas', false, 0.5);
     })
   } else {
-    sonarAlarma('cita_disponible');
+    sonarAlarma('cita_disponible', true);
     chrome.runtime.sendMessage('activarTab')
   }
 }
 
-function sonarAlarma(nombre) {
-  var myAudio = new Audio(chrome.runtime.getURL(`${nombre}.mp3`));
-  myAudio.play();
+/**
+ * @param {String} nombre 
+ * @param {Boolean} bucle 
+ * @param {Number} volume 
+ */
+function sonarAlarma(nombre, bucle = false, volume = 1) {
+  var audio = new Audio(chrome.runtime.getURL(`assets/${nombre}.mp3`));
+  audio.volume = volume;
+  if (bucle) {
+    audio.addEventListener('ended', function () {
+      this.currentTime = 0;
+      this.play();
+    }, false);
+  }
+  audio.play();
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender) {

@@ -27,7 +27,8 @@
     "assets/alarma.mp3",
     "assets/captcha.mp3",
     "assets/error.mp3",
-    "assets/cita_disponible.mp3"
+    "assets/cita_disponible.mp3",
+    "assets/no_hay_citas.mp3"
   ],
   "content_scripts": [{
     "matches": ["https://sede.administracionespublicas.gob.es/icpplus/*"],
