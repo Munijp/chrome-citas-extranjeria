@@ -9,13 +9,48 @@ const nombre = document.getElementById('nombre')
 const fecha = document.getElementById('fecha');
 const tiempo = document.getElementById('tiempo');
 const msg = document.getElementById('msg');
+const activo = document.getElementById('activo');
 
-chrome.storage.sync.get(['dni', 'nombre', 'fecha', 'tiempo'], function (data) {
+let storage = {}
+
+chrome.storage.sync.get(['dni', 'nombre', 'fecha', 'tiempo', 'activo'], function (data) {
+  storage = data;
   dni.value = data.dni || '';
   nombre.value = data.nombre || '';
   fecha.value = data.fecha || '';
   tiempo.value = data.tiempo || 1;
+  if (data.activo == undefined) {
+    storage.activo = true;
+    chrome.storage.sync.set(storage);
+    activo.classList.add('btn-success');
+    activo.textContent = "ACTIVO";
+  } else {
+    if (data.activo) {
+      activo.textContent = "ACTIVO";
+      activo.classList.add('btn-success')
+    }
+    else {
+      activo.textContent = "INACTIVO";
+      activo.classList.add('btn-danger')
+    }
+  }
 });
+
+activo.onclick = function activo_onClick(e) {
+  storage.activo = !storage.activo;
+  console.log('activo :>> ', storage.activo);
+  chrome.storage.sync.set(storage, () => {
+    if (storage.activo) {
+      activo.textContent = "ACTIVO";
+      activo.classList.remove("btn-danger")
+      activo.classList.add("btn-success")
+    } else {
+      activo.textContent = "INACTIVO";
+      activo.classList.remove("btn-success")
+      activo.classList.add("btn-danger")
+    }
+  });
+}
 
 formulario.onsubmit = function (e) {
   e.preventDefault(e)
