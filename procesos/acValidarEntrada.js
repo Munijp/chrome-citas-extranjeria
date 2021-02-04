@@ -1,6 +1,9 @@
 const captcha = document.querySelector('.g-recaptcha');
 if (captcha) {
-  alert('hemos detectado reCAPTCHA')
+  var myAudio = new Audio(chrome.runtime.getURL(`assets/captcha.mp3`));
+  myAudio.play().then(() => {
+    window.location.reload()
+  })
 }
 
 setInterval(() => {
