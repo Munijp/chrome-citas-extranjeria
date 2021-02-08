@@ -52,8 +52,8 @@ function enviarMensaje(tabID, alarma) {
 async function alarmaHandler(alarm) {
   if (!tabID) {
     const tab = await getTab('https://sede.administracionespublicas.gob.es/icpplustiem/acCitar')
-    console.log('buscando tab', tab.id);
     if (tab) enviarMensaje(tab.id, alarm.name)
-  } else enviarMensaje(tabID, alarm.name)
-
+  } else {
+    enviarMensaje(tabID, alarm.name)
+  }
 }
