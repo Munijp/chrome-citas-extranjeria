@@ -10,8 +10,12 @@ if (info) {
       sonarAlarma('no_hay_citas', false, 0.5);
     })
   } else {
-    sonarAlarma('cita_disponible', true);
-    chrome.runtime.sendMessage('activarTab')
+    /** @type {String} */
+    const html = document.innerHTML;
+    if (html.indexOf('Seleccione la oficina donde solicitar la cita') > -1) {
+      chrome.runtime.sendMessage('activarTab');
+      sonarAlarma('cita_disponible', true);
+    }
   }
 }
 
